@@ -78,10 +78,9 @@ const Hero = () => {
 
             <p
               ref={descRef}
-              className="text-gray-400 text-lg md:text-xl mb-10 max-w-xl leading-relaxed italic border-l-2 border-[#991b1b]
-               pl-6 mt-6"
+              className="font-sans italic text-gray-400 text-lg md:text-xl mb-10 max-w-xl leading-relaxed border-l-2 border-[#991b1b] pl-6 mt-6"
             >
-              Chuyên heo quay nguyên con cúng khai trưởng, đám tiệc - quay mới
+              Chuyên heo quay nguyên con cúng khai trương, đám tiệc - quay mới
               theo đơn. Lựa chọn số 1 cho các dịp lễ cúng tại Sài Gòn.
             </p>
 
