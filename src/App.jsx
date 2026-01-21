@@ -2,13 +2,15 @@ import { Suspense, lazy } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "./components/layout/Header";
 import Hero from "./components/layout/Hero";
-import WhyChooseUs from "./components/layout/WhyChooseUs";
-import ServiceArea from "./components/layout/ServiceArea";
-import PricingCTA from "./components/layout/PricingCTA";
-import ContactMap from "./components/layout/ContactMap";
 import Footer from "./components/layout/Footer";
+import Gallery from "./components/layout/Gallery";
 
+// Chuyển tất cả sang lazy để giảm Initial Bundle Size
 const Services = lazy(() => import("./components/layout/Services"));
+const WhyChooseUs = lazy(() => import("./components/layout/WhyChooseUs"));
+const ServiceArea = lazy(() => import("./components/layout/ServiceArea"));
+const PricingCTA = lazy(() => import("./components/layout/PricingCTA"));
+const ContactMap = lazy(() => import("./components/layout/ContactMap"));
 
 const SEOPage = () => (
   <div className="pt-32 text-center text-white">
@@ -38,35 +40,15 @@ function App() {
                   fallback={<div className="h-96 bg-[#0F0A08] animate-pulse" />}
                 >
                   <Services />
-                </Suspense>
-
-                <Suspense
-                  fallback={<div className="h-96 bg-[#0F0A08] animate-pulse" />}
-                >
                   <WhyChooseUs />
-                </Suspense>
-
-                <Suspense
-                  fallback={<div className="h-96 bg-[#0F0A08] animate-pulse" />}
-                >
                   <ServiceArea />
-                </Suspense>
-
-                <Suspense
-                  fallback={<div className="h-96 bg-[#0F0A08] animate-pulse" />}
-                >
+                  <Gallery />
                   <PricingCTA />
-                </Suspense>
-
-                <Suspense
-                  fallback={<div className="h-96 bg-[#0F0A08] animate-pulse" />}
-                >
                   <ContactMap />
                 </Suspense>
               </>
             }
           />
-
           <Route path="/heo-quay-tphcm" element={<SEOPage />} />
           <Route path="/gia-heo-quay" element={<PricePage />} />
         </Routes>

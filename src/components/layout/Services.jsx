@@ -102,18 +102,31 @@ const Services = () => {
       </div>
 
       <style>
-        {`
-          .swiper-pagination-bullet {
-            background: #D4AF37 !important;
-            opacity: 0.3;
-          }
-          .swiper-pagination-bullet-active {
-            opacity: 1;
-            width: 20px !important;
-            border-radius: 10px !important;
-          }
-        `}
-      </style>
+  {`
+    .swiper {
+      overflow: hidden !important;
+      padding-bottom: 80px !important;
+      margin-bottom: -40px !important;
+    }
+
+    .swiper-pagination {
+      bottom: 20px !important;
+      position: absolute !important;
+    }
+
+    .swiper-pagination-bullet {
+      background: #D4AF37 !important;
+      opacity: 0.3;
+      transition: all 0.3s ease;
+    }
+
+    .swiper-pagination-bullet-active {
+      opacity: 1;
+      width: 24px !important;
+      border-radius: 10px !important;
+    }
+  `}
+</style>
     </section>
   );
 };
