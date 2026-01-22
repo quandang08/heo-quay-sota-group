@@ -11,17 +11,8 @@ const WhyChooseUs = lazy(() => import("./components/layout/WhyChooseUs"));
 const ServiceArea = lazy(() => import("./components/layout/ServiceArea"));
 const PricingCTA = lazy(() => import("./components/layout/PricingCTA"));
 const ContactMap = lazy(() => import("./components/layout/ContactMap"));
-
-const SEOPage = () => (
-  <div className="pt-32 text-center text-white">
-    Trang SEO (Đang phát triển)
-  </div>
-);
-const PricePage = () => (
-  <div className="pt-32 text-center text-white">
-    Trang Báo Giá (Đang phát triển)
-  </div>
-);
+const ServiceSEO = lazy(() => import("./pages/ServiceSEO"));
+const PricePage = lazy(() => import("./pages/PricePage"));
 
 function App() {
   return (
@@ -29,29 +20,26 @@ function App() {
       <div className="bg-[#0F0A08] min-h-screen font-sans">
         <Header />
 
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <>
-                <Hero />
-
-                <Suspense
-                  fallback={<div className="h-96 bg-[#0F0A08] animate-pulse" />}
-                >
+        <Suspense fallback={<div className="min-h-screen bg-[#0F0A08] flex items-center justify-center text-[#D4AF37]">Đang tải...</div>}>
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <>
+                  <Hero />
                   <Services />
                   <WhyChooseUs />
                   <ServiceArea />
                   <Gallery />
                   <PricingCTA />
                   <ContactMap />
-                </Suspense>
-              </>
-            }
-          />
-          <Route path="/heo-quay-tphcm" element={<SEOPage />} />
-          <Route path="/gia-heo-quay" element={<PricePage />} />
-        </Routes>
+                </>
+              }
+            />
+            <Route path="/heo-quay-nguyen-con-tphcm" element={<ServiceSEO />} />
+            <Route path="/bang-gia-heo-quay" element={<PricePage />} />
+          </Routes>
+        </Suspense>
 
         <Footer />
       </div>

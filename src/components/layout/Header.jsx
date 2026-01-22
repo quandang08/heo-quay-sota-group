@@ -14,37 +14,41 @@ const Header = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Chặn cuộn trang khi menu đang mở
   useEffect(() => {
     document.body.style.overflow = isMenuOpen ? "hidden" : "unset";
   }, [isMenuOpen]);
 
   const navLinks = [
-    { name: "Trang Chủ", href: "#" },
-    { name: "Về Chúng Tôi", href: "#about-us" },
-    { name: "Dịch Vụ", href: "#services" },
-    { name: "Bảng Giá", href: "#pricing" },
-    { name: "Hình Ảnh", href: "#gallery" },
-    { name: "Liên Hệ", href: "#contact" },
+    { name: "Trang Chủ", href: "/" },
+    { name: "Về Chúng Tôi", href: "/ve-chung-toi" },
+    {
+      name: "Dịch Vụ",
+      href: "/dich-vu",
+      submenu: [
+        { name: "Heo Quay Nguyên Con", href: "/heo-quay-nguyen-con-tphcm" },
+        { name: "Heo Quay Sữa", href: "/heo-quay-sua-tphcm" },
+      ],
+    },
+    { name: "Bảng Giá", href: "/bang-gia-heo-quay" },
+    { name: "Liên Hệ", href: "/lien-he" },
   ];
 
-  // Animation xổ xuống từ trên
   const dropdownVariants = {
-    closed: { 
-      height: 0, 
+    closed: {
+      height: 0,
       opacity: 0,
-      transition: { duration: 0.3, ease: "easeInOut", when: "afterChildren" } 
+      transition: { duration: 0.3, ease: "easeInOut", when: "afterChildren" },
     },
-    opened: { 
-      height: "auto", 
+    opened: {
+      height: "auto",
       opacity: 1,
-      transition: { duration: 0.4, ease: "easeOut", staggerChildren: 0.05 } 
-    }
+      transition: { duration: 0.4, ease: "easeOut", staggerChildren: 0.05 },
+    },
   };
 
   const itemVariants = {
     closed: { y: -10, opacity: 0 },
-    opened: { y: 0, opacity: 1 }
+    opened: { y: 0, opacity: 1 },
   };
 
   return (
@@ -58,7 +62,13 @@ const Header = () => {
       >
         <div className="container mx-auto px-6 flex justify-between items-center">
           <div className="flex items-center gap-3">
-            <img src={logoImg} alt="Logo" width="80" height="80" className="h-14 md:h-20 w-auto object-contain" />
+            <img
+              src={logoImg}
+              alt="Logo"
+              width="80"
+              height="80"
+              className="h-14 md:h-20 w-auto object-contain"
+            />
             <Link to="/" className="flex flex-col">
               <h1 className="font-display text-base md:text-lg font-extrabold tracking-wide uppercase">
                 <span className="text-white">HEO QUAY</span>
@@ -71,26 +81,56 @@ const Header = () => {
           </div>
 
           <div className="flex items-center gap-6">
-            {/* Desktop Nav */}
-            <nav className="hidden lg:flex items-center space-x-6 text-[11px] font-semibold uppercase tracking-widest text-white/70">
+            <nav className="hidden lg:flex items-center space-x-8 text-[11px] font-semibold uppercase tracking-widest text-white/70">
               {navLinks.map((link, index) => (
-                <a key={index} href={link.href} className="relative group hover:text-[#D4AF37] transition-colors duration-300">
-                  {link.name}
-                  <span className="absolute -bottom-1 left-0 w-0 h-[1.5px] bg-[#D4AF37] group-hover:w-full transition-all duration-500"></span>
-                </a>
+                <div key={index} className="relative group py-4">
+                  <Link
+                    to={link.href}
+                    className="flex items-center gap-1 hover:text-[#D4AF37] transition-colors duration-300"
+                  >
+                    {link.name}
+                    {link.submenu && (
+                      <ChevronRight
+                        size={10}
+                        className="rotate-90 text-[#D4AF37]/50"
+                      />
+                    )}
+                  </Link>
+
+                  <span className="absolute bottom-3 left-0 w-0 h-[1.5px] bg-[#D4AF37] group-hover:w-full transition-all duration-500"></span>
+                  
+                  {link.submenu && (
+                    <div className="absolute top-[100%] left-0 w-64 bg-[#120B09] border border-[#D4AF37]/20 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 shadow-2xl rounded-xl overflow-hidden backdrop-blur-xl z-[110]">
+                      <div className="bg-gradient-to-b from-[#D4AF37]/10 to-transparent p-1">
+                        {link.submenu.map((sub, subIdx) => (
+                          <Link
+                            key={subIdx}
+                            to={sub.href}
+                            className="block px-6 py-4 text-[10px] text-white/80 hover:text-[#D4AF37] hover:bg-white/5 transition-colors border-b border-white/5 last:border-0"
+                          >
+                            {sub.name}
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </div>
               ))}
             </nav>
 
             <div className="flex items-center gap-4">
-              <a href="tel:0908426828" className="hidden md:flex items-center gap-2 bg-gold-gradient text-[#1a0f0a] rounded-full px-5 py-2.5 border border-[#D4AF37]/30 transition-all font-bold text-xs shadow-lg shadow-gold/10">
+              <a
+                href="tel:0908426828"
+                className="hidden md:flex items-center gap-2 bg-gold-gradient text-[#1a0f0a] rounded-full px-5 py-2.5 border border-[#D4AF37]/30 transition-all font-bold text-xs shadow-lg shadow-gold/10"
+              >
                 <Phone size={14} /> 0908.426.828
               </a>
               <button className="text-[#D4AF37] hover:text-white transition-colors relative">
                 <ShoppingBag size={22} />
               </button>
-              <button 
-                onClick={() => setIsMenuOpen(!isMenuOpen)} 
-                className="lg:hidden text-[#D4AF37] p-1 transition-transform active:scale-90"
+              <button
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                className="lg:hidden text-[#D4AF37]"
               >
                 {isMenuOpen ? <X size={32} /> : <Menu size={32} />}
               </button>
@@ -107,28 +147,45 @@ const Header = () => {
               exit="closed"
               className="lg:hidden absolute top-full left-0 w-full bg-[#120B09] border-b border-[#D4AF37]/20 shadow-2xl overflow-hidden"
             >
-              <nav className="flex flex-col p-4 max-h-[70vh] overflow-y-auto">
+              <nav className="flex flex-col p-4 max-h-[80vh] overflow-y-auto">
                 {navLinks.map((link, index) => (
-                  <motion.a
-                    variants={itemVariants}
-                    key={index}
-                    href={link.href}
-                    onClick={() => setIsMenuOpen(false)}
-                    className="flex justify-between items-center p-5 text-white/90 font-sans text-lg font-semibold border-b border-white/5 active:bg-[#D4AF37]/10 transition-all rounded-xl"
-                  >
-                    {link.name}
-                    <ChevronRight size={18} className="text-[#D4AF37]/40" />
-                  </motion.a>
+                  <div key={index} className="flex flex-col">
+                    <motion.div variants={itemVariants}>
+                      <Link
+                        to={link.href}
+                        onClick={
+                          !link.submenu ? () => setIsMenuOpen(false) : undefined
+                        }
+                        className="flex justify-between items-center p-5 text-white/90 font-sans text-lg font-semibold border-b border-white/5"
+                      >
+                        {link.name}
+                        {link.submenu && (
+                          <ChevronRight
+                            size={18}
+                            className="rotate-90 text-[#D4AF37]/40"
+                          />
+                        )}
+                      </Link>
+                    </motion.div>
+
+                    {link.submenu && (
+                      <div className="bg-white/5 py-2">
+                        {link.submenu.map((sub, sIdx) => (
+                          <motion.div key={sIdx} variants={itemVariants}>
+                            <Link
+                              to={sub.href}
+                              onClick={() => setIsMenuOpen(false)}
+                              className="flex justify-between items-center p-4 pl-10 text-white/60 font-sans text-base border-l-2 border-[#D4AF37]/20 ml-5"
+                            >
+                              {sub.name}
+                              <ChevronRight size={14} className="opacity-30" />
+                            </Link>
+                          </motion.div>
+                        ))}
+                      </div>
+                    )}
+                  </div>
                 ))}
-                
-                <motion.div variants={itemVariants} className="p-4 mt-2">
-                  <a 
-                    href="tel:0908426828" 
-                    className="w-full bg-gold-gradient text-[#1a0f0a] py-5 rounded-2xl font-black text-center flex items-center justify-center gap-3 shadow-xl active:scale-95 transition-transform"
-                  >
-                    <Phone size={22} /> GỌI: 0908.426.828
-                  </a>
-                </motion.div>
               </nav>
             </motion.div>
           )}
@@ -137,9 +194,9 @@ const Header = () => {
 
       <AnimatePresence>
         {isMenuOpen && (
-          <motion.div 
-            initial={{ opacity: 0 }} 
-            animate={{ opacity: 1 }} 
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setIsMenuOpen(false)}
             className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[90]"
