@@ -27,19 +27,17 @@ const ContactMap = () => {
   return (
     <section id="contact" className="py-24 bg-[#0F0A08] px-6 border-t border-[#D4AF37]/5">
       <div className="container mx-auto">
-        {/* Tiêu đề */}
         <div className="text-center mb-16">
-          <span className="font-sans text-[#D4AF37] text-xs uppercase tracking-[0.4em] mb-4 block">
+          <span className="font-sans font-semibold text-[#D4AF37] text-xs uppercase tracking-[0.4em] mb-4 block">
             Sẵn sàng phục vụ 24/7
           </span>
-          <h2 className="font-display text-4xl md:text-5xl text-[#f9e29f] uppercase mb-6">
+          <h2 className="font-display font-bold text-4xl md:text-5xl text-[#f9e29f] uppercase mb-6">
             Liên Hệ & Bản Đồ
           </h2>
-          <div className="w-24 h-[1px] bg-gold-gradient mx-auto opacity-50"></div>
+          <div className="w-24 h-[2px] bg-gold-gradient mx-auto opacity-100"></div>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-          {/* Cột trái: Thông tin liên hệ */}
           <div className="space-y-4">
             {contactData.map((item, index) => (
               <motion.div
@@ -48,7 +46,7 @@ const ContactMap = () => {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="bg-[#1A0F0A]/60 border border-[#D4AF37]/10 p-6 rounded-2xl flex items-center justify-between group hover:border-[#D4AF37]/30 transition-all cursor-pointer"
+                className="bg-[#1D1614] border border-[#D4AF37]/10 p-6 rounded-2xl flex items-center justify-between group hover:border-[#D4AF37]/30 transition-all cursor-pointer"
               >
                 <div className="flex items-center gap-6">
                   <div className="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center group-hover:bg-[#D4AF37]/10 transition-colors">
@@ -56,7 +54,7 @@ const ContactMap = () => {
                   </div>
                   <div>
                     <h4 className="font-sans text-gray-500 text-[10px] uppercase tracking-widest mb-1">{item.title}</h4>
-                    <p className="font-display text-xl text-white tracking-wide">{item.value}</p>
+                    <p className="font-sans font-semibold text-xl text-white tracking-wide">{item.value}</p>
                     <p className="font-sans text-gray-400 text-xs italic mt-1">{item.desc}</p>
                   </div>
                 </div>
@@ -66,7 +64,6 @@ const ContactMap = () => {
               </motion.div>
             ))}
 
-            {/* Thẻ Chỉ Đường & Nút Call */}
             <motion.div 
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -76,13 +73,14 @@ const ContactMap = () => {
               <div className="flex gap-4">
                 <Navigation className="text-[#D4AF37] shrink-0" size={24} />
                 <div>
-                  <h4 className="font-display text-[#f9e29f] text-lg uppercase mb-2">Chỉ đường</h4>
+                  <h4 className="font-sans font-semibold text-[#f9e29f] text-lg uppercase mb-2">Chỉ đường</h4>
                   <p className="font-sans text-gray-400 text-sm leading-relaxed italic">
                     Xưởng tọa lạc tại khu vực trung tâm Bình Tân, thuận tiện di chuyển sang các quận lân cận như Tân Phú, Quận 6, Quận 11 chỉ trong 15-20 phút.
                   </p>
                 </div>
               </div>
-              <button className="w-full bg-[#991b1b] hover:bg-[#b91c1c] text-white py-5 rounded-2xl font-bold uppercase tracking-widest text-sm flex items-center justify-center gap-3 shadow-xl shadow-[#991b1b]/20 transition-all active:scale-95">
+              <button className="w-full bg-[#991b1b] hover:bg-[#b91c1c] text-white py-5 rounded-2xl font-bold uppercase tracking-widest text-sm flex
+               items-center justify-center gap-3 shadow-xl shadow-[#991b1b]/20 transition-all active:scale-95">
                 <PhoneCall size={20} />
                 Gọi Đặt Hàng Ngay
               </button>

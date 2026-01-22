@@ -56,13 +56,13 @@ const Header = () => {
             : "bg-transparent py-5"
         }`}
       >
-        <div className="max-w-[1200px] mx-auto px-6 flex justify-between items-center">
+        <div className="container mx-auto px-6 flex justify-between items-center">
           <div className="flex items-center gap-3">
             <img src={logoImg} alt="Logo" width="80" height="80" className="h-14 md:h-20 w-auto object-contain" />
             <Link to="/" className="flex flex-col">
               <h1 className="font-display text-base md:text-lg font-extrabold tracking-wide uppercase">
                 <span className="text-white">HEO QUAY</span>
-                <span className="ml-2 text-gold-gradient">HỮU DANH</span>
+                <span className="ml-2 text-gold-gradient">MR.PIG</span>
               </h1>
               <span className="text-[7px] md:text-[8px] text-[#D4AF37]/70 tracking-[0.2em] uppercase font-medium">
                 Giao tận nơi - Tận tâm phục vụ

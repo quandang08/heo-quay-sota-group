@@ -4,17 +4,10 @@
 
 @font-face {
   font-family: 'Playfair Display';
-  src: url('./assets/fonts/PlayfairDisplay-VariableFont_wght.woff2') format('woff2');
-  font-weight: normal;
+  src: url('./assets/fonts/PlayfairDisplay-VariableFont_wght.woff2') format('woff2-variations'),
+       url('./assets/fonts/PlayfairDisplay-VariableFont_wght.woff2') format('woff2');
+  font-weight: 100 900;
   font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Playfair Display';
-  src: url('./assets/fonts/PlayfairDisplay-Italic-VariableFont_wght.woff2') format('woff2');
-  font-weight: normal;
-  font-style: italic;
   font-display: swap;
 }
 
@@ -29,10 +22,11 @@
 @font-face {
   font-family: 'Inter';
   src: url('./assets/fonts/Inter-Italic-VariableFont_opsz,wght.woff2') format('woff2');
-  font-weight: normal;
+  font-weight: 100 900;
   font-style: italic;
   font-display: swap;
 }
+
 @layer utilities {
   .text-gold-gradient {
     @apply bg-clip-text text-transparent bg-gradient-to-r from-[#D4AF37] to-[#F9E29F];

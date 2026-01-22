@@ -1,15 +1,22 @@
-import { Facebook, Instagram, MapPin, Phone, Clock, Send } from "lucide-react";
+import {
+  Facebook,
+  Instagram,
+  MapPin,
+  Phone,
+  Clock,
+  Send,
+  Youtube,
+} from "lucide-react";
 import Logo from "../../assets/images/logo.webp";
 
 const Footer = () => {
   return (
     <footer className="bg-[#0A0503] pt-20 pb-10 px-6 border-t border-[#D4AF37]/10">
       <div className="container mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-20">
-          {/* Cột 1: Thương hiệu & Sứ mệnh */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-4">
           <div className="space-y-6">
-            <div className="flex items-center gap-3">
-              <div className="w-14 h-14 rounded-full flex items-center justify-center overflow-hidden">
+            <div className="flex items-start gap-3">
+              <div className="w-16 h-16 rounded-full flex items-start justify-center overflow-hidden -mt-3">
                 <img
                   src={Logo}
                   alt="Logo Heo Quay Hữu Danh"
@@ -20,37 +27,21 @@ const Footer = () => {
                   decoding="async"
                 />
               </div>
-              <h3 className="font-display text-xl text-white uppercase tracking-wider">
-                Heo Quay <span className="text-[#D4AF37]">Hữu Danh</span>
+              <h3 className="font-display font-bold text-2xl text-white uppercase tracking-wider">
+                Heo Quay <span className="text-[#D4AF37]">MR.PIG</span>
               </h3>
             </div>
-            <p className="font-sans text-gray-500 text-sm leading-relaxed italic">
+            <p className="font-sans text-gray-500 text-md leading-relaxed italic">
               Sứ mệnh của chúng tôi là mang đến những lễ vật trang trọng, ngon
               miệng và sạch sẽ nhất cho các nghi lễ truyền thống của gia đình
               bạn.
             </p>
-            <div className="flex gap-4">
-              <a
-                href="#"
-                className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:bg-[#991b1b] hover:text-white transition-all"
-              >
-                <Facebook size={18} />
-              </a>
-              <a
-                href="#"
-                className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:bg-[#991b1b] hover:text-white transition-all"
-              >
-                <Instagram size={18} />
-              </a>
-            </div>
           </div>
-
-          {/* Cột 2: Liên kết nhanh */}
           <div>
-            <h4 className="font-display text-[#D4AF37] text-sm uppercase tracking-[0.2em] mb-8">
+            <h4 className="font-display font-bold text-xl text-[#D4AF37] uppercase tracking-[0.2em] mb-8">
               Liên kết nhanh
             </h4>
-            <ul className="space-y-4 font-sans text-sm text-gray-400">
+            <ul className="space-y-4 font-sans text-md text-gray-400">
               <li>
                 <a href="#" className="hover:text-white transition-colors">
                   Trang Chủ
@@ -76,13 +67,11 @@ const Footer = () => {
               </li>
             </ul>
           </div>
-
-          {/* Cột 3: Thông tin liên hệ */}
           <div>
-            <h4 className="font-display text-[#D4AF37] text-sm uppercase tracking-[0.2em] mb-8">
+            <h4 className="font-display font-bold text-[#D4AF37] text-xl uppercase tracking-[0.2em] mb-8">
               Thông tin
             </h4>
-            <ul className="space-y-6 font-sans text-sm text-gray-400">
+            <ul className="space-y-6 font-sans text-md text-gray-400">
               <li className="flex gap-4">
                 <MapPin size={18} className="text-[#D4AF37] shrink-0" />
                 <span>123 Đường Số 7, Bình Tân, TPHCM</span>
@@ -97,13 +86,11 @@ const Footer = () => {
               </li>
             </ul>
           </div>
-
-          {/* Cột 4: Tư vấn nhanh */}
           <div>
-            <h4 className="font-display text-[#D4AF37] text-sm uppercase tracking-[0.2em] mb-8">
+            <h4 className="font-display font-bold text-[#D4AF37] text-xl uppercase tracking-[0.2em] mb-8">
               Tư vấn nhanh
             </h4>
-            <p className="font-sans text-gray-500 text-xs mb-6 italic">
+            <p className="font-sans text-gray-500 text-md mb-6 italic">
               Để lại số điện thoại để chúng tôi gọi lại tư vấn mâm cúng phù hợp.
             </p>
             <form className="relative">
@@ -117,11 +104,47 @@ const Footer = () => {
               </button>
             </form>
           </div>
+          <div className="flex gap-4">
+            <a
+              href="#"
+              className="w-11 h-11 rounded-full border border-white/10 flex items-center justify-center text-gray-400 
+               hover:border-[#1877F2] hover:text-[#1877F2] hover:bg-[#1877F2]/5 
+               transition-all duration-500 hover:shadow-[0_0_15px_rgba(24,119,242,0.3)] group"
+            >
+              <Facebook
+                size={20}
+                className="group-hover:scale-110 transition-transform"
+              />
+            </a>
+
+            <a
+              href="#"
+              className="w-11 h-11 rounded-full border border-white/10 flex items-center justify-center text-gray-400 
+               hover:border-[#E4405F] hover:text-[#E4405F] hover:bg-[#E4405F]/5 
+               transition-all duration-500 hover:shadow-[0_0_15px_rgba(228,64,95,0.3)] group"
+            >
+              <Instagram
+                size={20}
+                className="group-hover:scale-110 transition-transform"
+              />
+            </a>
+            <a
+              href="#"
+              className="w-11 h-11 rounded-full border border-white/10 flex items-center justify-center text-gray-400 
+               hover:border-[#FF0000] hover:text-[#FF0000] hover:bg-[#FF0000]/5 
+               transition-all duration-500 hover:shadow-[0_0_15px_rgba(255,0,0,0.3)] group"
+            >
+              <Youtube
+                size={20}
+                className="group-hover:scale-110 transition-transform"
+              />
+            </a>
+          </div>
         </div>
 
         <div className="pt-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
           <p className="font-sans text-gray-600 text-[10px] uppercase tracking-widest">
-           Copyright © 2026 . All rights reserved. Design by sotagroup.vn
+            Copyright © 2026 . All rights reserved. Design by sotagroup.vn
           </p>
           <div className="flex gap-8 font-sans text-[10px] text-gray-600 uppercase tracking-widest">
             <a href="#" className="hover:text-white">

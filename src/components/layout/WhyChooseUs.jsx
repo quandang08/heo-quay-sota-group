@@ -34,7 +34,7 @@ const WhyChooseUs = () => {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            className="font-sans text-[#D4AF37] text-xs uppercase tracking-[0.4em] mb-4 block"
+            className="font-sans font-medium text-[#D4AF37] text-xs uppercase tracking-[0.4em] mb-4 block"
           >
             Giá Trị Cốt Lõi
           </motion.span>
@@ -43,9 +43,9 @@ const WhyChooseUs = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="font-display text-4xl md:text-5xl lg:text-6xl text-[#f9e29f] uppercase mb-6"
+            className="font-display font-bold text-4xl md:text-5xl lg:text-5xl text-[#f9e29f] uppercase mb-6"
           >
-            Tại Sao Chọn <span className="text-white">Hữu Danh?</span>
+            Tại Sao Chọn <span className="text-white">MR.PIG ?</span>
           </motion.h2>
         </div>
 
