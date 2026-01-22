@@ -11,8 +11,10 @@ const WhyChooseUs = lazy(() => import("./components/layout/WhyChooseUs"));
 const ServiceArea = lazy(() => import("./components/layout/ServiceArea"));
 const PricingCTA = lazy(() => import("./components/layout/PricingCTA"));
 const ContactMap = lazy(() => import("./components/layout/ContactMap"));
+const AboutUs = lazy(() => import("./pages/AboutUs"));
 const ServiceSEO = lazy(() => import("./pages/ServiceSEO"));
 const PricePage = lazy(() => import("./pages/PricePage"));
+const Contact = lazy(() => import("./pages/ContactPage"));
 
 function App() {
   return (
@@ -36,8 +38,10 @@ function App() {
                 </>
               }
             />
+            <Route path="/ve-chung-toi" element={<AboutUs />} />
             <Route path="/heo-quay-nguyen-con-tphcm" element={<ServiceSEO />} />
             <Route path="/bang-gia-heo-quay" element={<PricePage />} />
+            <Route path="/lien-he" element={<Contact />} />
           </Routes>
         </Suspense>
 
