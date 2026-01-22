@@ -68,7 +68,7 @@ const Gallery = () => {
 
       <div className="container mx-auto">
         <div className="flex flex-col lg:flex-row items-end justify-between mb-20 gap-8">
-          <div className="max-w-2xl">
+          <div className="max-w-2xl mx-auto lg:mx-0 text-center lg:text-left">
             <span className="text-[#c5a059] uppercase tracking-[0.4em] text-[10px] font-black mb-4 block font-sans">
               Visual Lookbook
             </span>
