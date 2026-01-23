@@ -4,13 +4,14 @@ import {
   Routes,
   Route,
   useLocation,
+  Navigate,
 } from "react-router-dom";
 import Header from "./components/layout/Header";
 import Hero from "./components/layout/Hero";
 import Footer from "./components/layout/Footer";
 import Gallery from "./components/layout/Gallery";
 
-// Lazy loading để tối ưu performance
+// Lazy loading...
 const Services = lazy(() => import("./components/layout/Services"));
 const WhyChooseUs = lazy(() => import("./components/layout/WhyChooseUs"));
 const ServiceArea = lazy(() => import("./components/layout/ServiceArea"));
@@ -40,29 +41,15 @@ const AppContent = () => {
         }
       >
         <Routes>
-          <Route
-            path="/"
-            element={
-              <>
-                <Hero />
-                <Services />
-                <WhyChooseUs />
-                <ServiceArea />
-                <Gallery />
-                <PricingCTA />
-                <ContactMap />
-              </>
-            }
-          />
+          <Route path="/" element={<><Hero /><Services /><WhyChooseUs /><ServiceArea /><Gallery /><PricingCTA /><ContactMap /></>} />
           <Route path="/ve-chung-toi" element={<AboutUs />} />
           <Route path="/heo-quay-nguyen-con-tphcm" element={<ServiceSEO />} />
           <Route path="/bang-gia-heo-quay" element={<PricePage />} />
           <Route path="/lien-he" element={<Contact />} />
 
-          {/* Group các route Admin */}
+          {/* Group Admin */}
           <Route path="/admin">
             <Route index element={<Navigate to="/admin/login" replace />} />
-
             <Route path="login" element={<AdminLogin />} />
             <Route path="dashboard" element={<AdminDashboard />} />
           </Route>

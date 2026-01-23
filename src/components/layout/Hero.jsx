@@ -43,7 +43,7 @@ const Hero = () => {
           alt="Background"
           width={1920}
           height={1080}
-          fetchPriority="low"
+          fetchpriority="low"
           className="w-full h-full object-cover scale-105 will-change-transform"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-[#0F0A08] via-[#0F0A08]/90 to-transparent"></div>
@@ -115,7 +115,7 @@ const Hero = () => {
                 width="750"
                 height="937"
                 alt="Heo Quay Hữu Danh Banner"
-                fetchPriority="high"
+                fetchpriority="high"
                 loading="eager"
                 decoding="async"
                 className="w-full h-full object-cover transform hover:scale-110 transition-transform duration-1000"
