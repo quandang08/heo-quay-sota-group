@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination } from "swiper/modules";
+
 import "swiper/css";
 import "swiper/css/pagination";
 
@@ -17,116 +18,175 @@ const services = [
   },
   {
     title: "Cúng Khai Trương Hồng Phát",
-    desc: "Trình bày mâm cúng trang trọng, đầy đủ lễ vật, mang lại tài lộc cho gia chủ.",
+    desc: "Mâm cúng trang trọng, đầy đủ lễ nghi, mang ý nghĩa chiêu tài – khai vận – phát lộc.",
     image: service2,
   },
   {
     title: "Heo Sữa Quay Đặc Sản",
-    desc: "Lựa chọn tinh tế cho các bữa tiệc gia đình, hội nghị. Thịt heo sữa mềm thơm, da giòn tan.",
+    desc: "Phù hợp tiệc gia đình, hội nghị nhỏ. Thịt mềm, da mỏng giòn, hương vị tinh tế.",
     image: service3,
   },
   {
     title: "Tiệc Cưới Thượng Hạng",
-    desc: "Đẳng cấp bàn tiệc với heo quay nguyên con trang trí long phụng, biểu tượng của hạnh phúc.",
+    desc: "Heo quay nguyên con trang trí long phụng, biểu trưng hạnh phúc và viên mãn.",
     image: service4,
   },
 ];
 
 const Services = () => {
   return (
-    <section id="services" className="py-24 bg-[#0F0A08] px-6">
+    <section
+      id="services"
+      className="
+        py-28 px-6
+        bg-gradient-to-b
+        from-[#7A1418]
+        via-[#5B0F14]
+        to-[#3A0A0C]
+      "
+    >
       <div className="container mx-auto">
-        <div className="text-center mb-16">
-          <span className="text-[#D4AF37] font-medium font-sans text-xs uppercase tracking-[0.4em] mb-4 block">
+        {/* Header */}
+        <div className="text-center mb-20">
+          <span
+            className="
+              block mb-4
+              text-[#F5E6A8]
+              text-xs uppercase tracking-[0.35em]
+            "
+          >
             Tinh hoa ẩm thực
           </span>
-          <h2 className="font-display font-bold text-4xl md:text-5xl text-[#f9e29f] uppercase mb-4">
+
+          <h2
+            className="
+              font-display font-bold
+              text-4xl md:text-5xl
+              uppercase
+              text-[#FFD966]
+              mb-5
+            "
+          >
             Dịch Vụ Cung Cấp
           </h2>
-          <div className="w-24 h-[2px] bg-[#7F6838] mx-auto opacity-100"></div>
+
+          <div className="w-24 h-[2px] bg-[#D4AF37] mx-auto" />
         </div>
 
+        {/* Slider */}
         <Swiper
           modules={[Autoplay, Pagination]}
-          spaceBetween={30}
-          slidesPerView={1}
-          loop={true}
+          spaceBetween={32}
+          loop
           autoplay={{
-            delay: 3000,
+            delay: 3500,
             disableOnInteraction: false,
           }}
           pagination={{ clickable: true }}
           breakpoints={{
-            640: { slidesPerView: 1 },
+            0: { slidesPerView: 1 },
             768: { slidesPerView: 2 },
             1024: { slidesPerView: 3 },
           }}
-          className="pb-14"
+          className="pb-24"
         >
-          {services.map((service, index) => (
-            <SwiperSlide key={index}>
-              <motion.div
-                whileHover={{ y: -10 }}
-                className="group bg-[#1A0F0A]/50 border border-[#D4AF37]/10 rounded-3xl overflow-hidden hover:border-[#D4AF37]/40 transition-all duration-500 h-full"
+          {services.map((item, index) => (
+            <SwiperSlide key={index} className="h-auto">
+              <motion.article
+                whileHover={{ y: -6 }}
+                transition={{ duration: 0.35, ease: "easeOut" }}
+                className="
+                  group h-full
+                  bg-[#FFF6E5]
+                  rounded-3xl overflow-hidden
+                  border border-[#D4AF37]/40
+                  hover:border-[#D4AF37]
+                  shadow-lg hover:shadow-[#D4AF37]/30
+                  transition-all
+                "
               >
-                {/* Ảnh dịch vụ */}
+                {/* Image */}
                 <div className="aspect-square overflow-hidden">
                   <img
-                    src={service.image}
-                    alt={service.title}
+                    src={item.image}
+                    alt={item.title}
                     loading="lazy"
-                    className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all
-                    duration-700 scale-105 group-hover:scale-110"
+                    className="
+                      w-full h-full object-cover
+                      transition-transform duration-700
+                      group-hover:scale-110
+                    "
                   />
                 </div>
 
-                {/* Nội dung text */}
+                {/* Content */}
                 <div className="p-8">
-                  <h4 className="font-display text-2xl text-[#f9e29f] mb-4 group-hover:text-white transition-colors">
-                    {service.title}
-                  </h4>
-                  <p className="text-gray-400 text-sm leading-relaxed mb-6 line-clamp-3">
-                    {service.desc}
+                  <h3
+                    className="
+                      font-display text-2xl
+                      text-[#3A0A0C]
+                      mb-3
+                    "
+                  >
+                    {item.title}
+                  </h3>
+
+                  <p
+                    className="
+                      text-[#6B2A1E]
+                      text-sm leading-relaxed
+                      mb-6
+                      line-clamp-3
+                    "
+                  >
+                    {item.desc}
                   </p>
+
                   <a
                     href="#"
-                    className="inline-flex items-center gap-2 text-[#D4AF37] text-xs font-bold uppercase tracking-widest group-hover:gap-4 transition-all"
+                    className="
+                      inline-flex items-center gap-2
+                      text-[#B8860B]
+                      text-xs font-bold
+                      uppercase tracking-widest
+                      transition-all
+                      hover:gap-4
+                    "
                   >
-                    Xem chi tiết <span>&gt;</span>
+                    Xem chi tiết →
                   </a>
                 </div>
-              </motion.div>
+              </motion.article>
             </SwiperSlide>
           ))}
         </Swiper>
       </div>
 
+      {/* Swiper Custom Style */}
       <style>
-  {`
-    .swiper {
-      overflow: hidden !important;
-      padding-bottom: 80px !important;
-      margin-bottom: -40px !important;
-    }
+        {`
+          .swiper {
+            padding-bottom: 80px !important;
+          }
 
-    .swiper-pagination {
-      bottom: 20px !important;
-      position: absolute !important;
-    }
+          .swiper-pagination {
+            bottom: 16px !important;
+          }
 
-    .swiper-pagination-bullet {
-      background: #D4AF37 !important;
-      opacity: 0.3;
-      transition: all 0.3s ease;
-    }
+          .swiper-pagination-bullet {
+            background: #FFD966 !important;
+            opacity: 0.35;
+            transition: all 0.3s ease;
+          }
 
-    .swiper-pagination-bullet-active {
-      opacity: 1;
-      width: 24px !important;
-      border-radius: 10px !important;
-    }
-  `}
-</style>
+          .swiper-pagination-bullet-active {
+            opacity: 1;
+            width: 26px !important;
+            height: 6px !important;
+            border-radius: 999px !important;
+          }
+        `}
+      </style>
     </section>
   );
 };

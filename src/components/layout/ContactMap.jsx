@@ -1,93 +1,122 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { Phone, MessageCircle, MapPin, Navigation, PhoneCall } from 'lucide-react';
+import React from "react";
+import { motion } from "framer-motion";
+import {
+  Phone,
+  MessageCircle,
+  MapPin,
+  Navigation,
+  PhoneCall,
+} from "lucide-react";
 
 const contactData = [
   {
-    icon: <Phone className="text-[#f9e29f]" size={24} />,
+    icon: <Phone size={22} className="text-[#D4AF37]" />,
     title: "SỐ ĐIỆN THOẠI ĐẶT HÀNG",
     value: "0908.426.828",
-    desc: "Liên hệ ngay để được giữ chỗ giờ tốt"
+    desc: "Liên hệ nhanh để giữ đúng khung giờ lễ",
   },
   {
-    icon: <MessageCircle className="text-[#22c55e]" size={24} />,
+    icon: <MessageCircle size={22} className="text-[#D4AF37]" />,
     title: "HỖ TRỢ QUA ZALO",
     value: "0908.426.828",
-    desc: "Nhận ngay hình ảnh mẫu heo mới quay hôm nay"
+    desc: "Xem hình heo quay mới trong ngày",
   },
   {
-    icon: <MapPin className="text-[#ef4444]" size={24} />,
+    icon: <MapPin size={22} className="text-[#D4AF37]" />,
     title: "XƯỞNG QUAY CHÍNH",
     value: "123 Đường Số 7, Bình Tân",
-    desc: "Quy trình quay heo sạch, khép kín 100%"
-  }
+    desc: "Quy trình sạch – quay trong ngày",
+  },
 ];
 
 const ContactMap = () => {
   return (
-    <section id="contact" className="py-24 bg-[#0F0A08] px-6 border-t border-[#D4AF37]/5">
+    <section
+      id="contact"
+      className="py-24 px-6 bg-[#14110f] border-t border-[#D4AF37]/10"
+    >
       <div className="container mx-auto">
+        {/* Header */}
         <div className="text-center mb-16">
-          <span className="font-sans font-semibold text-[#D4AF37] text-xs uppercase tracking-[0.4em] mb-4 block">
-            Sẵn sàng phục vụ 24/7
+          <span className="block text-[10px] uppercase tracking-[0.4em] text-[#c5a059] font-semibold mb-4">
+            Sẵn sàng phục vụ
           </span>
-          <h2 className="font-display font-bold text-4xl md:text-5xl text-[#f9e29f] uppercase mb-6">
+          <h2 className="font-display text-4xl md:text-5xl uppercase text-[#f9e29f] font-bold mb-4">
             Liên Hệ & Bản Đồ
           </h2>
-          <div className="w-24 h-[2px] bg-gold-gradient mx-auto opacity-100"></div>
+          <div className="w-24 h-[1px] bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent mx-auto" />
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-start">
+          {/* Left */}
           <div className="space-y-4">
             {contactData.map((item, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="bg-[#1D1614] border border-[#D4AF37]/10 p-6 rounded-2xl flex items-center justify-between group hover:border-[#D4AF37]/30 transition-all cursor-pointer"
+                transition={{ delay: index * 0.08 }}
+                className="flex items-center justify-between p-6 rounded-2xl
+                bg-[#1b1816] border border-[#D4AF37]/10
+                hover:border-[#D4AF37]/30 transition-colors"
               >
-                <div className="flex items-center gap-6">
-                  <div className="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center group-hover:bg-[#D4AF37]/10 transition-colors">
+                <div className="flex items-center gap-5">
+                  <div className="w-11 h-11 rounded-xl bg-[#D4AF37]/10 flex items-center justify-center">
                     {item.icon}
                   </div>
                   <div>
-                    <h4 className="font-sans text-gray-500 text-[10px] uppercase tracking-widest mb-1">{item.title}</h4>
-                    <p className="font-sans font-semibold text-xl text-white tracking-wide">{item.value}</p>
-                    <p className="font-sans text-gray-400 text-xs italic mt-1">{item.desc}</p>
+                    <h4 className="text-[10px] uppercase tracking-widest text-gray-500 mb-1">
+                      {item.title}
+                    </h4>
+                    <p className="text-lg font-semibold text-[#f3f3f3]">
+                      {item.value}
+                    </p>
+                    <p className="text-xs text-gray-400 italic mt-1">
+                      {item.desc}
+                    </p>
                   </div>
                 </div>
-                <div className="text-gray-600 group-hover:text-[#D4AF37] transition-colors">
-                  <Navigation size={18} />
-                </div>
+                <Navigation
+                  size={18}
+                  className="text-gray-500 hover:text-[#D4AF37] transition-colors"
+                />
               </motion.div>
             ))}
 
-            <motion.div 
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
+            {/* Direction box */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="bg-[#1A0F0A]/60 border border-[#D4AF37]/10 p-8 rounded-3xl space-y-6"
+              className="p-8 rounded-3xl bg-[#1b1816] border border-[#D4AF37]/15 space-y-6"
             >
               <div className="flex gap-4">
-                <Navigation className="text-[#D4AF37] shrink-0" size={24} />
+                <Navigation size={22} className="text-[#D4AF37]" />
                 <div>
-                  <h4 className="font-sans font-semibold text-[#f9e29f] text-lg uppercase mb-2">Chỉ đường</h4>
-                  <p className="font-sans text-gray-400 text-sm leading-relaxed italic">
-                    Xưởng tọa lạc tại khu vực trung tâm Bình Tân, thuận tiện di chuyển sang các quận lân cận như Tân Phú, Quận 6, Quận 11 chỉ trong 15-20 phút.
+                  <h4 className="uppercase text-[#f9e29f] font-semibold mb-2">
+                    Chỉ đường nhanh
+                  </h4>
+                  <p className="text-sm text-gray-400 italic leading-relaxed">
+                    Khu vực Bình Tân – thuận tiện di chuyển Tân Phú, Quận 6,
+                    Quận 11 trong 15–20 phút.
                   </p>
                 </div>
               </div>
-              <button className="w-full bg-[#991b1b] hover:bg-[#b91c1c] text-white py-5 rounded-2xl font-bold uppercase tracking-widest text-sm flex
-               items-center justify-center gap-3 shadow-xl shadow-[#991b1b]/20 transition-all active:scale-95">
+
+              <button
+                className="w-full py-5 rounded-2xl font-bold uppercase tracking-widest text-sm
+                bg-[#991b1b] hover:bg-[#b91c1c] text-white
+                shadow-lg shadow-[#991b1b]/20 transition-all active:scale-95
+                flex items-center justify-center gap-3"
+              >
                 <PhoneCall size={20} />
                 Gọi Đặt Hàng Ngay
               </button>
             </motion.div>
           </div>
 
-          {/* Cột phải: Bản đồ */}
+          {/* Right – Map */}
           <motion.div 
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
